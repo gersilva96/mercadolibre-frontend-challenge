@@ -1,0 +1,50 @@
+@use "styles/box/boxSide.scss";
+@use "styles/box/boxCorner.scss";
+
+@mixin borderMixin(
+  $color,
+  $style,
+  $sideTop,
+  $sideRight,
+  $sideBottom,
+  $sideLeft,
+  $sideLeftRight,
+  $sideTopBottom,
+  $sideAll,
+  $radiusTop,
+  $radiusRight,
+  $radiusBottom,
+  $radiusLeft,
+  $radiusTopLeft,
+  $radiusTopRight,
+  $radiusBottomRight,
+  $radiusBottomLeft,
+  $radiusAll
+) {
+  @if $color {
+    border-color: $color;
+  }
+  @if $style {
+    border-style: $style;
+  }
+  @include boxSideMixin(
+    $sideTop,
+    $sideRight,
+    $sideBottom,
+    $sideLeft,
+    $sideLeftRight,
+    $sideTopBottom,
+    $sideAll
+  );
+  @include boxCornerMixin(
+    $radiusTop,
+    $radiusRight,
+    $radiusBottom,
+    $radiusLeft,
+    $radiusTopLeft,
+    $radiusTopRight,
+    $radiusBottomRight,
+    $radiusBottomLeft,
+    $radiusAll
+  );
+}

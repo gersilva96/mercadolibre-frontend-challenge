@@ -1,0 +1,77 @@
+@mixin flexContainerInternal(
+  $direction,
+  $wrap,
+  $justifyContent,
+  $alignItems,
+  $alignContent
+) {
+  align-content: $alignContent;
+  align-items: $alignItems;
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $justifyContent;
+}
+
+@mixin flexRow(
+  $justifyContent: flex-start,
+  $alignItems: stretch,
+  $alignContent: stretch,
+  $wrapContent: false
+) {
+  @if $wrapContent {
+    @include flexContainerInternal(
+      row,
+      wrap,
+      $justifyContent,
+      $alignItems,
+      $alignContent
+    );
+  } @else {
+    @include flexContainerInternal(
+      row,
+      nowrap,
+      $justifyContent,
+      $alignItems,
+      $alignContent
+    );
+  }
+}
+
+@mixin flexColumn(
+  $justifyContent: flex-start,
+  $alignItems: stretch,
+  $alignContent: stretch,
+  $wrapContent: false
+) {
+  @if $wrapContent {
+    @include flexContainerInternal(
+      column,
+      wrap,
+      $justifyContent,
+      $alignItems,
+      $alignContent
+    );
+  } @else {
+    @include flexContainerInternal(
+      column,
+      nowrap,
+      $justifyContent,
+      $alignItems,
+      $alignContent
+    );
+  }
+}
+
+@mixin flexItem(
+  $grow: 0,
+  $shrink: 1,
+  $basis: auto,
+  $align: auto,
+  $order: initial
+) {
+  align-self: $align;
+  flex-basis: $basis;
+  flex-grow: $grow;
+  flex-shrink: $shrink;
+  order: $order;
+}

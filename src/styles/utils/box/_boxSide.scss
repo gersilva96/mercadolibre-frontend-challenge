@@ -1,0 +1,44 @@
+@mixin all($all) {
+  border-bottom-width: $all;
+  border-left-width: $all;
+  border-right-width: $all;
+  border-top-width: $all;
+}
+
+@mixin leftRight($leftRight) {
+  border-left-width: $leftRight;
+  border-right-width: $leftRight;
+}
+
+@mixin topBottom($topBottom) {
+  border-bottom-width: $topBottom;
+  border-top-width: $topBottom;
+}
+
+@mixin boxSideMixin(
+  $top,
+  $right,
+  $bottom,
+  $left,
+  $leftRight,
+  $topBottom,
+  $all
+) {
+  box-sizing: border-box;
+  @if $all {
+    @include all($all);
+  } @else {
+    @if $leftRight {
+      @include leftRight($leftRight);
+    }
+    @if $topBottom {
+      @include topBottom($topBottom);
+    }
+    @if $top or $right or $bottom or $left {
+      border-top-width: $top;
+      border-right-width: $right;
+      border-bottom-width: $bottom;
+      border-left-width: $left;
+    }
+  }
+}

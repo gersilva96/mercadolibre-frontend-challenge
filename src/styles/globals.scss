@@ -1,0 +1,22 @@
+@use "styles/utils/containers" as containers;
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+.body {
+  background: #fafafa;
+  @include containers.full-container-width;
+
+  .responsiveContainer {
+    @include containers.responsive-container;
+  }
+}
