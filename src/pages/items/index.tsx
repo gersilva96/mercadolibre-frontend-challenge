@@ -23,7 +23,6 @@ import { useAppDispatch } from "state/store";
 import { tk } from "translations/i18n";
 import { FC } from "types/react";
 import { AppResponse } from "types/request";
-import { Optional } from "types/utils";
 import { isResponseSuccess } from "utils/axiosHelper";
 import { getItemUrl } from "utils/pages";
 
@@ -78,20 +77,16 @@ const SearchResult: FC<SearchResultProps> = ({
 export default SearchResult;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { q, limit, category, offset } = context.query;
   const itemsResponse = await getItemsBySearch({
-    q: context.query.q as Optional<string>,
-    limit: context.query.limit ? Number(context.query.limit) : paginationLimit,
-    category: context.query.category as Optional<string>,
-    offset: context.query.offset ? Number(context.query.offset) : undefined
+    q: q as string,
+    limit: limit ? Number(limit) : paginationLimit,
+    category: category as string,
+    offset: offset ? Number(offset) : undefined
   });
-  if (context.query.category) {
-    const categoryResponse = await getCategoryById(
-      context.query.category as string
-    );
+  if (category) {
+    const categoryResponse = await getCategoryById(category as string);
     return { props: { itemsResponse, categoryResponse } };
   }
-  const props: SearchResultProps = {
-    itemsResponse
-  };
-  return { props };
+  return { props: { itemsResponse } };
 };
