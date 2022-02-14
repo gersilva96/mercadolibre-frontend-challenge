@@ -26,7 +26,6 @@ export const SearchBarFormContent: FC<SearchBarFormContent> = ({
         title={t(tkSearchInput.ariaLabel)}
         type="submit"
         icon={<SearchIcon />}
-        size="sm"
       />
     </div>
   );

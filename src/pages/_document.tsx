@@ -11,7 +11,6 @@ class MyDocument extends Document {
             type="image/png"
             href={`${CONFIG.ABSOLUTE_URL}/favicon.svg`}
           />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"

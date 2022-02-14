@@ -38,7 +38,6 @@ export const SearchField: FC<SearchFieldProps> = ({ className }) => {
       onChange={onChange}
       ref={ref}
       value={value}
-      size="sm"
       placeholder={t(tkSearchInput.placeholder)}
     />
   );

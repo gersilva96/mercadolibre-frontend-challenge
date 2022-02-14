@@ -13,7 +13,7 @@ export interface HeaderProps {
   className?: string;
 }
 
-const tkHeaderExhibitorImage = tk.page.home.component.headerExhibitorImage;
+const tkheader = tk.page.home.component.header;
 
 export const Header: FC<HeaderProps> = ({ className }) => {
   const { t } = useTranslation();
@@ -21,7 +21,7 @@ export const Header: FC<HeaderProps> = ({ className }) => {
     <header className={getClassName(classes.header, className)}>
       <div className={classes.headerContent}>
         <Link href={"/"}>
-          <a>
+          <a aria-label={t(tkheader.mainLogo.ariaLabel)}>
             <MercadoLibreLogoWithText className={classes.mercadoLibreLogo} />
           </a>
         </Link>
@@ -29,8 +29,8 @@ export const Header: FC<HeaderProps> = ({ className }) => {
         <img
           className={classes.exhibitorImage}
           src="https://http2.mlstatic.com/D_NQ_877425-MLA47306668299_082021-OO.webp"
-          alt={t(tkHeaderExhibitorImage.altText)}
-          title={t(tkHeaderExhibitorImage.altText)}
+          alt={t(tkheader.exhibitorImage.altText)}
+          title={t(tkheader.exhibitorImage.altText)}
         />
       </div>
     </header>

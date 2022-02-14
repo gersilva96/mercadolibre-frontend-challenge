@@ -24,6 +24,8 @@
   }
 
   .descriptionContainer {
-    width: calc(70% - (24px / 2));
+    @media #{$large} {
+      width: calc(70% - (24px / 2));
+    }
   }
 }
