@@ -13,7 +13,21 @@
     @include fullContainerHeight();
     @include responsiveContainer();
 
+    .navLogo {
+      background-image: url("/logos/mercado-libre.svg");
+      height: 40px;
+      overflow: hidden;
+      text-indent: -999px;
+      width: 50px;
+
+      @media #{$medium} {
+        background-image: url("/logos/mercado-libre-text.svg");
+        width: 135px;
+      }
+    }
+
     .mercadoLibreLogo {
+      background-image: url("/logos/mercadoLibre.svg");
       height: 40px;
     }
 

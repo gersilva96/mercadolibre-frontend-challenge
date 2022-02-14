@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-// import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { MercadoLibreLogoWithText } from "components/logos/MercadoLibreLogoWithText";
 import { tk } from "translations/i18n";
 import { FC } from "types/react";
 import { getClassName } from "utils/components";
@@ -21,17 +20,24 @@ export const Header: FC<HeaderProps> = ({ className }) => {
     <header className={getClassName(classes.header, className)}>
       <div className={classes.headerContent}>
         <Link href={"/"}>
-          <a aria-label={t(tkheader.mainLogo.ariaLabel)}>
-            <MercadoLibreLogoWithText className={classes.mercadoLibreLogo} />
+          <a
+            aria-label={t(tkheader.mainLogo.navText)}
+            className={classes.navLogo}
+          >
+            {t(tkheader.mainLogo.navText)}
           </a>
         </Link>
         <SearchBarForm className={classes.searchBar} />
-        <img
-          className={classes.exhibitorImage}
-          src="https://http2.mlstatic.com/D_NQ_877425-MLA47306668299_082021-OO.webp"
-          alt={t(tkheader.exhibitorImage.altText)}
-          title={t(tkheader.exhibitorImage.altText)}
-        />
+        <div className={classes.exhibitorImage}>
+          <Image
+            src="/exhibitor.webp"
+            height={39}
+            width={340}
+            unoptimized
+            alt={t(tkheader.exhibitorImage.altText)}
+            title={t(tkheader.exhibitorImage.altText)}
+          />
+        </div>
       </div>
     </header>
   );

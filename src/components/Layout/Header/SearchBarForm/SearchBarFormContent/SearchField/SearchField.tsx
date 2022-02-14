@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Input } from "@chakra-ui/react";
 import { isString } from "lodash-es";
 import { useRouter } from "next/router";
 import { useController, useFormContext } from "react-hook-form";
@@ -30,7 +29,7 @@ export const SearchField: FC<SearchFieldProps> = ({ className }) => {
     setValue("q", isString(router.query.q) ? router.query.q : "");
   }, [setValue, router.query.q]);
   return (
-    <Input
+    <input
       className={getClassName(classes.input, className)}
       type="text"
       name={name}

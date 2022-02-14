@@ -1,12 +1,29 @@
-/* stylelint-disable declaration-no-important */
+@import "styles/variables/colors";
 @import "styles/utils/layout/flex";
 
 .formContent {
-  @include flexRowMixin();
+  @include flexRowMixin($alignItems: center);
+  position: relative;
+
+  .input {
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 #00000020;
+    outline: none;
+    padding: 8px 64px 8px 16px;
+    width: 100%;
+  }
 
   .formButton {
-    border-bottom-left-radius: 0 !important;
-    border-top-left-radius: 0 !important;
-    color: #aaa;
+    border-left: 1px solid $meliLightGray;
+    color: $meliGray;
+    height: 24px;
+    position: absolute;
+    right: 0;
+    width: 48px;
+
+    .formButtonIcon {
+      font-size: 20px;
+      margin: auto;
+    }
   }
 }

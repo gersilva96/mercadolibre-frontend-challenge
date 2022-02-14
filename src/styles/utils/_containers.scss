@@ -76,6 +76,7 @@
 
   @media #{mediaQuerySizes.$small} {
     margin: 0 auto;
+    padding: 0 24px;
     @include setWidth(540px);
   }
 
