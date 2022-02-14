@@ -1,0 +1,12 @@
+/* stylelint-disable declaration-no-important */
+@import "styles/utils/layout/flex";
+
+.formContent {
+  @include flexRowMixin();
+
+  .formButton {
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    color: #aaa;
+  }
+}

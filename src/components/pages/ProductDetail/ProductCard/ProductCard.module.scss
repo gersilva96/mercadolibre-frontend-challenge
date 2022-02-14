@@ -1,0 +1,29 @@
+@import "styles/utils/layout/flex";
+@import "styles/variables/mediaQuerySizes";
+
+.container {
+  @include flexColumnMixin($gap: 32px);
+  background-color: white;
+  border-radius: 4px;
+  padding: 32px;
+
+  .pictureDetailContainer {
+    @include flexColumnMixin($gap: 24px);
+
+    @media #{$large} {
+      @include flexRowMixin($gap: 24px);
+
+      .pictureContainer {
+        @include flexItemMixin($basis: 70%);
+      }
+
+      .detailContainer {
+        @include flexItemMixin($basis: 30%);
+      }
+    }
+  }
+
+  .descriptionContainer {
+    width: calc(70% - (24px / 2));
+  }
+}

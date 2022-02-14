@@ -1,9 +1,6 @@
-// CONTAINERS
-// Contains containers utils to use across all the SASS files.
-
 @use "styles/variables/mediaQuerySizes" as mediaQuerySizes;
 
-@mixin center-horizontal() {
+@mixin centerHorizontal() {
   // left: 50%;
   // position: absolute;
   // transform: translate(-50%, 0);
@@ -11,7 +8,7 @@
   margin-right: auto;
 }
 
-@mixin center-vertical() {
+@mixin centerVertical() {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
@@ -24,81 +21,81 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin set-width($width) {
+@mixin setWidth($width) {
   max-width: $width;
   min-width: $width;
   width: $width;
 }
 
-@mixin set-height($height) {
+@mixin setHeight($height) {
   height: $height;
   max-height: $height;
   min-height: $height;
 }
 
-@mixin set-size($size) {
-  @include set-width($size);
-  @include set-height($size);
+@mixin setSize($size) {
+  @include setWidth($size);
+  @include setHeight($size);
 }
 
-@mixin full-container-width {
-  @include set-width(100%);
+@mixin fullContainerWidth {
+  @include setWidth(100%);
 }
 
-@mixin full-container-height {
-  @include set-height(100%);
+@mixin fullContainerHeight {
+  @include setHeight(100%);
 }
 
-@mixin full-container-size {
+@mixin fullContainerSize {
   left: 0;
   top: 0;
-  @include full-container-width;
-  @include full-container-height;
+  @include fullContainerWidth;
+  @include fullContainerHeight;
 }
 
-@mixin full-viewport-width {
+@mixin fullViewportWidth {
   overflow-x: hidden;
-  @include set-width(100vw);
+  @include setWidth(100vw);
 }
 
-@mixin full-viewport-height {
+@mixin fullViewportHeight {
   overflow-y: hidden;
-  @include set-height(100vh);
+  @include setHeight(100vh);
 }
 
-@mixin full-viewport-size {
+@mixin fullViewportSize {
   left: 0;
   top: 0;
-  @include full-viewport-width;
-  @include full-viewport-height;
+  @include fullViewportWidth;
+  @include fullViewportHeight;
 }
 
-@mixin responsive-container {
-  margin: 0 15px;
-  @include set-width(calc(100% - 30px));
+@mixin responsiveContainer {
+  margin: 0 24px;
+  @include setWidth(calc(100% - 48px));
 
   @media #{mediaQuerySizes.$small} {
     margin: 0 auto;
-    @include set-width(540px);
+    @include setWidth(540px);
   }
 
   @media #{mediaQuerySizes.$medium} {
     margin: 0 auto;
-    @include set-width(720px);
+    @include setWidth(720px);
   }
 
   @media #{mediaQuerySizes.$large} {
     margin: 0 auto;
-    @include set-width(960px);
+    @include setWidth(960px);
   }
 
   @media #{mediaQuerySizes.$x-large} {
     margin: 0 auto;
-    @include set-width(1140px);
+    @include setWidth(1140px);
   }
 
   @media #{mediaQuerySizes.$xx-large} {
     margin: 0 auto;
-    @include set-width(1320px);
+    @include setWidth(1320px);
   }
 }

@@ -23,10 +23,10 @@
       @include topBottom($topBottom);
     }
     @if $top or $right or $bottom or $left {
-      margin-top: $top;
-      margin-right: $right;
       margin-bottom: $bottom;
       margin-left: $left;
+      margin-right: $right;
+      margin-top: $top;
     }
   }
 }

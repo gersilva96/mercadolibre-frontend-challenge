@@ -1,5 +1,8 @@
-import { getProductDescriptionUrl } from "api/constants/url";
-import { Price, Product } from "api/types";
+import { Category, Price, Product } from "api/types";
+import {
+  getCompleteCategoryUrl,
+  getCompleteProductDescriptionUrl
+} from "api/utils/url";
 import { request } from "services/common";
 import { HTTPMethods } from "types/request";
 import { isResponseError } from "utils/axiosHelper";
@@ -9,7 +12,7 @@ export const getProductFromMeliProduct = async (
 ): Promise<Product> => {
   const descriptionResponse = await request({
     method: HTTPMethods.GET,
-    url: getProductDescriptionUrl(meliProduct.id)
+    url: getCompleteProductDescriptionUrl(meliProduct.id)
   });
   const description = isResponseError(descriptionResponse)
     ? undefined
@@ -37,4 +40,20 @@ export const getProductFromMeliProduct = async (
     sold_quantity: meliProduct.sold_quantity,
     description
   };
+};
+
+export const getCategoryListFromProduct = async (
+  meliProduct: any
+): Promise<Category[]> => {
+  const categoryId = meliProduct.category_id as string;
+  const categoryResponse = await request({
+    method: HTTPMethods.GET,
+    url: getCompleteCategoryUrl(categoryId)
+  });
+  const categoryArray: Category[] = isResponseError(categoryResponse)
+    ? []
+    : categoryResponse.payload.path_from_root.map(
+        (category: Category) => category
+      );
+  return categoryArray;
 };

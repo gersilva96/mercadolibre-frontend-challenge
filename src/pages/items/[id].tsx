@@ -4,10 +4,11 @@ import { NextSeo } from "next-seo";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Item } from "api/types";
+import { ProductDetail } from "components/pages/ProductDetail/ProductDetail";
 import { getItemById } from "services/mercadoLibre/products";
 import {
   onExitScreen,
-  onProductDownloadSuccessful
+  onItemDownloadSuccessful
 } from "state/features/productDetail/events";
 import { productSelector } from "state/features/productDetail/selectors";
 import { useAppDispatch } from "state/store";
@@ -16,24 +17,24 @@ import { FC } from "types/react";
 import { AppResponse } from "types/request";
 import { isResponseSuccess } from "utils/axiosHelper";
 
-interface ProductDetailProps {
+interface ProductDetailScreenProps {
   response: AppResponse<Item>;
 }
 
 const tkProductDetail = tk.page.productDetail;
 
-const ProductDetail: FC<ProductDetailProps> = ({ response }) => {
+const ProductDetailScreen: FC<ProductDetailScreenProps> = ({ response }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const product = useSelector(productSelector);
   useEffect(() => {
     if (isResponseSuccess(response)) {
-      dispatch(onProductDownloadSuccessful(response.payload.item));
+      dispatch(onItemDownloadSuccessful(response.payload));
     }
     return () => {
       dispatch(onExitScreen());
     };
-  }, []);
+  }, [dispatch, response]);
   return (
     <>
       <NextSeo
@@ -42,14 +43,12 @@ const ProductDetail: FC<ProductDetailProps> = ({ response }) => {
           productName: product?.title
         })}
       />
-      <div>
-        <p>{product?.title}</p>
-      </div>
+      <ProductDetail />
     </>
   );
 };
 
-export default ProductDetail;
+export default ProductDetailScreen;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const response = await getItemById(context.query.id as string);

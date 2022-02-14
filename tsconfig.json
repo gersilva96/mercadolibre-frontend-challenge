@@ -30,7 +30,8 @@
       "styles/*": ["./src/styles/*"],
       "translations/*": ["./src/translations/*"],
       "types/*": ["./src/types/*"],
-      "utils/*": ["./src/utils/*"]
+      "utils/*": ["./src/utils/*"],
+      "public/*": ["./public/*"]
     },
     "preserveConstEnums": true,
     "removeComments": true,
@@ -44,7 +45,15 @@
     "isolatedModules": true,
     "incremental": true
   },
-  "exclude": ["node_modules", "docs", "build", "dist", "out", "tests", "next.config.js"],
+  "exclude": [
+    "node_modules",
+    "docs",
+    "build",
+    "dist",
+    "out",
+    "tests",
+    "next.config.js"
+  ],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "watchOptions": {
     "fallbackPolling": "dynamicPriority",

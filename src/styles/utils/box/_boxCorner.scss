@@ -48,10 +48,10 @@
       @include bottomLeft($bottomLeft);
     }
     @if $top or $right or $bottom or $left {
-      top: $top;
-      right: $right;
       bottom: $bottom;
       left: $left;
+      right: $right;
+      top: $top;
     }
   }
 }

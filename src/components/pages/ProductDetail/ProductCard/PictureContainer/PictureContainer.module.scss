@@ -1,0 +1,17 @@
+@import "styles/utils/layout/flex";
+@import "styles/variables/mediaQuerySizes";
+
+.container {
+  @include flexRowMixin($justifyContent: center, $alignItems: center);
+
+  .figure {
+    height: 300px;
+    position: relative;
+    width: 300px;
+
+    @media #{$small} {
+      height: 500px;
+      width: 500px;
+    }
+  }
+}

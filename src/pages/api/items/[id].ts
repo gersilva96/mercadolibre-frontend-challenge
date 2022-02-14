@@ -1,7 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { getCompleteProductUrl } from "api/constants/url";
-import { Author, Category, Item, ItemParam, Product } from "api/types";
-import { getProductFromMeliProduct } from "api/utils/items";
+import { Author, Category, Item, GenericIdParam, Product } from "api/types";
+import {
+  getCategoryListFromProduct,
+  getProductFromMeliProduct
+} from "api/utils/items";
+import { getCompleteProductUrl } from "api/utils/url";
 import { request } from "services/common";
 import { t, tk } from "translations/i18n";
 import { HTTPMethods } from "types/request";
@@ -12,13 +15,13 @@ const tkApiCommon = tk.page.api.common;
 export const meliApiResponsePayloadToItem = async (
   payload: any
 ): Promise<Item> => {
+  const meliItem: any = payload;
   const author: Author = {
     name: "Germán",
     lastName: "Silva"
   };
-  const categories: Category[] = [];
-  const meliItem: any = payload;
   const item: Product = await getProductFromMeliProduct(meliItem);
+  const categories: Category[] = await getCategoryListFromProduct(meliItem);
   return { author, categories, item };
 };
 
@@ -29,7 +32,7 @@ const getProduct = async (req: NextApiRequest, res: NextApiResponse) => {
     });
     return;
   }
-  const { id } = req.query as unknown as ItemParam;
+  const { id } = req.query as unknown as GenericIdParam;
   const response = await request({
     method: HTTPMethods.GET,
     url: getCompleteProductUrl(id)
@@ -38,7 +41,8 @@ const getProduct = async (req: NextApiRequest, res: NextApiResponse) => {
     res.send(handleError(response));
     return;
   }
-  res.status(200).send(await meliApiResponsePayloadToItem(response.payload));
+  const product = await meliApiResponsePayloadToItem(response.payload);
+  res.status(200).send(product);
 };
 
 export default getProduct;

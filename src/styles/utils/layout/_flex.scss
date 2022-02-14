@@ -3,20 +3,23 @@
   $wrap,
   $justifyContent,
   $alignItems,
-  $alignContent
+  $alignContent,
+  $gap
 ) {
   align-content: $alignContent;
   align-items: $alignItems;
   display: flex;
   flex-flow: $direction $wrap;
+  gap: $gap;
   justify-content: $justifyContent;
 }
 
-@mixin flexRow(
+@mixin flexRowMixin(
   $justifyContent: flex-start,
   $alignItems: stretch,
   $alignContent: stretch,
-  $wrapContent: false
+  $wrapContent: false,
+  $gap: 0
 ) {
   @if $wrapContent {
     @include flexContainerInternal(
@@ -24,7 +27,8 @@
       wrap,
       $justifyContent,
       $alignItems,
-      $alignContent
+      $alignContent,
+      $gap
     );
   } @else {
     @include flexContainerInternal(
@@ -32,16 +36,18 @@
       nowrap,
       $justifyContent,
       $alignItems,
-      $alignContent
+      $alignContent,
+      $gap
     );
   }
 }
 
-@mixin flexColumn(
+@mixin flexColumnMixin(
   $justifyContent: flex-start,
   $alignItems: stretch,
   $alignContent: stretch,
-  $wrapContent: false
+  $wrapContent: false,
+  $gap: 0
 ) {
   @if $wrapContent {
     @include flexContainerInternal(
@@ -49,7 +55,8 @@
       wrap,
       $justifyContent,
       $alignItems,
-      $alignContent
+      $alignContent,
+      $gap
     );
   } @else {
     @include flexContainerInternal(
@@ -57,12 +64,13 @@
       nowrap,
       $justifyContent,
       $alignItems,
-      $alignContent
+      $alignContent,
+      $gap
     );
   }
 }
 
-@mixin flexItem(
+@mixin flexItemMixin(
   $grow: 0,
   $shrink: 1,
   $basis: auto,

@@ -15,10 +15,12 @@ export interface Items extends BaseItemOrItemsResult {
 }
 
 export interface SearchItemsQueryParams {
-  q: string;
+  q?: string;
   limit?: number;
+  category?: string;
+  offset?: number;
 }
 
-export interface ItemParam {
+export interface GenericIdParam {
   id: string;
 }

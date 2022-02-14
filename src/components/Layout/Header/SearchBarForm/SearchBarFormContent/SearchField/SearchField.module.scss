@@ -1,0 +1,8 @@
+/* stylelint-disable declaration-no-important */
+@import "styles/utils/box/border";
+
+.input {
+  background-color: white !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}

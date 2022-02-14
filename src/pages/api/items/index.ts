@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { searchUrl } from "api/constants/url";
 import {
   Author,
   Category,
@@ -8,6 +7,7 @@ import {
   SearchItemsQueryParams
 } from "api/types";
 import { getProductFromMeliProduct } from "api/utils/items";
+import { searchUrl } from "api/utils/url";
 import { request } from "services/common";
 import { t, tk } from "translations/i18n";
 import { HTTPMethods } from "types/request";

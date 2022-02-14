@@ -1,5 +1,5 @@
-@use "styles/box/boxSide.scss";
-@use "styles/box/boxCorner.scss";
+@use "styles/utils/box/boxSide.scss";
+@use "styles/utils/box/boxCorner.scss";
 
 @mixin borderMixin(
   $color,

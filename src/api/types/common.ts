@@ -3,4 +3,13 @@ export interface Author {
   lastName: string;
 }
 
-export type Category = string;
+export interface Category {
+  id: string;
+  name: string;
+}
+
+export interface Pagination {
+  currentPage: number;
+  totalPages: number;
+  limit: number;
+}

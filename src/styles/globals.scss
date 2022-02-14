@@ -1,22 +1,18 @@
 @use "styles/utils/containers" as containers;
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@use "styles/variables/colors" as colors;
 
 * {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
   margin: 0px;
   padding: 0px;
 }
 
-.body {
-  background: #fafafa;
-  @include containers.full-container-width;
+html {
+  background: colors.$meliLightGray;
+}
 
-  .responsiveContainer {
-    @include containers.responsive-container;
-  }
+a {
+  color: inherit;
+  text-decoration: none;
 }

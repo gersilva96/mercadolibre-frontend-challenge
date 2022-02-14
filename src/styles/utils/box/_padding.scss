@@ -31,10 +31,10 @@
       @include topBottom($topBottom);
     }
     @if $top or $right or $bottom or $left {
-      padding-top: $top;
-      padding-right: $right;
       padding-bottom: $bottom;
       padding-left: $left;
+      padding-right: $right;
+      padding-top: $top;
     }
   }
 }

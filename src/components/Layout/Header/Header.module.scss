@@ -1,0 +1,34 @@
+@import "styles/utils/containers";
+@import "styles/utils/layout/flex";
+@import "styles/variables/colors";
+@import "styles/variables/mediaQuerySizes";
+
+.header {
+  @include fullContainerWidth();
+  background-color: $meliYellow;
+  height: 64px;
+
+  .headerContent {
+    @include flexRowMixin($alignItems: center, $gap: 24px);
+    @include fullContainerHeight();
+    @include responsiveContainer();
+
+    .mercadoLibreLogo {
+      height: 40px;
+    }
+
+    .searchBar {
+      @include flexItemMixin($grow: 1);
+    }
+
+    .exhibitorImage {
+      display: none;
+
+      @media #{$large} {
+        display: block;
+        height: 39px;
+        width: 340px;
+      }
+    }
+  }
+}

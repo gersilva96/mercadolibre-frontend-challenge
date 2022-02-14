@@ -35,10 +35,10 @@
       @include topBottom($topBottom);
     }
     @if $top or $right or $bottom or $left {
-      border-top-width: $top;
-      border-right-width: $right;
       border-bottom-width: $bottom;
       border-left-width: $left;
+      border-right-width: $right;
+      border-top-width: $top;
     }
   }
 }
