@@ -20,7 +20,7 @@ export const DescriptionContainer: FC<DescriptionContainerProps> = ({
   return (
     <div className={className}>
       <h2 className={classes.title}>{t(tkDescriptionContainer.title)}</h2>
-      <pre className={classes.description}>{product.description}</pre>
+      <p className={classes.description}>{product.description}</p>
     </div>
   );
 };

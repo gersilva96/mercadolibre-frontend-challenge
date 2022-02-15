@@ -13,7 +13,10 @@ const resources = {
 i18next.use(initReactI18next).init({
   resources,
   lng: "es",
-  initImmediate: true
+  initImmediate: true,
+  interpolation: {
+    escapeValue: false
+  }
 });
 
 export const { t } = i18next;

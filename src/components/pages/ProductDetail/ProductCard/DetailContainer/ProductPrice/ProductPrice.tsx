@@ -10,23 +10,30 @@ export interface ProductPriceProps {
 
 const tkDetailContainer = tk.page.productDetail.component.detailContainer;
 
-const toThousand = (n: number) =>
-  n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
 export const ProductPrice: FC<ProductPriceProps> = ({ product }) => {
   const { t } = useTranslation();
   return (
     <div className={classes.productPriceContainer}>
       <span className={classes.productPriceAmount}>
         {t(tkDetailContainer.productPrice.priceString, {
-          amount: toThousand(product.price.amount)
+          localValue: product.price.amount,
+          formatParams: {
+            localValue: {
+              currency: product.price.currency,
+              locale: t(tkDetailContainer.productPrice.locale),
+              maximumFractionDigits: 0
+            }
+          }
         })}
       </span>
       {product.price.decimals !== 0 && (
         <span className={classes.productPriceDecimals}>
-          {product.price.decimals.toLocaleString("es-AR", {
-            minimumIntegerDigits: 2
-          })}
+          {product.price.decimals.toLocaleString(
+            t(tkDetailContainer.productPrice.locale),
+            {
+              minimumIntegerDigits: 2
+            }
+          )}
         </span>
       )}
     </div>

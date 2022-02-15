@@ -18,8 +18,8 @@ export const ProductSubtitle: FC<ProductSubtitleProps> = ({ product }) => {
       {product.sold_quantity !== undefined &&
         product.condition === ProductCondition.New && (
           <span>
-            {` | ${t(tkDetailContainer.productSubtitle.soldQuantityText, {
-              quantity: product.sold_quantity
+            {` | ${t(tkDetailContainer.productSubtitle.soldQuantity, {
+              count: product.sold_quantity
             })}`}
           </span>
         )}

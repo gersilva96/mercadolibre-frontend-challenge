@@ -5,10 +5,12 @@ export const detailContainer = {
     [ProductCondition.New]: "Nuevo",
     [ProductCondition.NotSpecified]: "Condición no especificada",
     [ProductCondition.Used]: "Usado",
-    soldQuantityText: "{{quantity}} vendidos"
+    soldQuantity: "{{count}} vendido",
+    soldQuantity_plural: "{{count}} vendidos"
   },
   productPrice: {
-    priceString: "$ {{amount}}"
+    priceString: "{{localValue, currency}}",
+    locale: "es-AR"
   },
   freeShipping: "Envío gratis",
   buttons: {

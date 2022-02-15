@@ -1,4 +1,5 @@
 import { Breadcrumb, BreadcrumbItem } from "@chakra-ui/react";
+import { last } from "lodash-es";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 import { useSelector } from "react-redux";
@@ -14,6 +15,11 @@ export interface BreadCrumbProps {
 
 export const BreadCrumb: FC<BreadCrumbProps> = ({ className }) => {
   const categoryList = useSelector(categoryListSelector);
+  const getBreadCrumbItemClassName = (id: string): string => {
+    const isLast = last(categoryList)?.id === id;
+    if (isLast) return getClassName(classes.breadCrumbItem, classes.bold);
+    return classes.breadCrumbItem;
+  };
   return (
     <Breadcrumb
       className={getClassName(classes.container, className)}
@@ -22,7 +28,9 @@ export const BreadCrumb: FC<BreadCrumbProps> = ({ className }) => {
       {categoryList.map((category) => (
         <BreadcrumbItem key={category.id}>
           <Link href={getItemsUrl({ category: category.id })}>
-            <a className={classes.breadCrumbItem}>{category.name}</a>
+            <a className={getBreadCrumbItemClassName(category.id)}>
+              {category.name}
+            </a>
           </Link>
         </BreadcrumbItem>
       ))}
