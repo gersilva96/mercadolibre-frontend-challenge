@@ -4,12 +4,18 @@ export interface Price {
   decimals: number;
 }
 
+export enum ProductCondition {
+  New = "new",
+  NotSpecified = "not_specified",
+  Used = "used"
+}
+
 export interface Product {
   id: string;
   title: string;
   price: Price;
   picture: string | string[];
-  condition: string;
+  condition: ProductCondition;
   free_shipping: boolean;
   sold_quantity?: number;
   description?: string;

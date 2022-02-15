@@ -1,0 +1,17 @@
+@import "styles/utils/layout/flex";
+
+.productPriceContainer {
+  @include flexRowMixin($gap: 4px);
+  margin-bottom: 32px;
+
+  .productPriceAmount {
+    font-size: 46px;
+    font-weight: 500;
+  }
+
+  .productPriceDecimals {
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 8px;
+  }
+}
