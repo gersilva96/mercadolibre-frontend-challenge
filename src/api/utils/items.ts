@@ -36,6 +36,11 @@ export const getProductFromMeliProduct = async (
       ? meliProduct.thumbnail
       : [],
     condition: meliProduct.condition,
+    seller_address: {
+      city: meliProduct.seller_address.city.name,
+      state: meliProduct.seller_address.state.name,
+      country: meliProduct.seller_address.country.name
+    },
     free_shipping: meliProduct.shipping.free_shipping,
     sold_quantity: meliProduct.sold_quantity,
     description
