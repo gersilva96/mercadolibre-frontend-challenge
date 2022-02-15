@@ -13,17 +13,27 @@
     width: 100%;
   }
 
-  .formButton {
-    border-left: 1px solid $meliLightGray;
-    color: $meliGray;
-    height: 24px;
+  .buttonContainer {
+    @include flexRowMixin($alignItems: center);
+    height: 40px;
     position: absolute;
     right: 0;
-    width: 48px;
 
-    .formButtonIcon {
-      font-size: 20px;
-      margin: auto;
+    .divider {
+      border-right: 1px solid $meliLightGray;
+      height: 24px;
+      width: 1px;
+    }
+
+    .formButton {
+      color: $meliGray;
+      height: 40px;
+      width: 48px;
+
+      .formButtonIcon {
+        font-size: 20px;
+        margin: auto;
+      }
     }
   }
 }

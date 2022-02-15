@@ -43,14 +43,17 @@ export const SearchBarFormContent: FC<SearchBarFormContent> = ({
         value={value}
         placeholder={t(tkSearchInput.placeholder)}
       />
-      <button
-        className={classes.formButton}
-        aria-label={t(tkSearchInput.ariaLabel)}
-        title={t(tkSearchInput.ariaLabel)}
-        type="submit"
-      >
-        <SearchIcon className={classes.formButtonIcon} />
-      </button>
+      <div className={classes.buttonContainer}>
+        <div className={classes.divider} />
+        <button
+          className={classes.formButton}
+          aria-label={t(tkSearchInput.ariaLabel)}
+          title={t(tkSearchInput.ariaLabel)}
+          type="submit"
+        >
+          <SearchIcon className={classes.formButtonIcon} />
+        </button>
+      </div>
     </div>
   );
 };
