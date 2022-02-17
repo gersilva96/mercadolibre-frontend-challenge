@@ -17,7 +17,7 @@ export interface SearchBarFormContent {
   className?: string;
 }
 
-const tkSearchInput = tk.page.home.component.searchInput;
+const tkSearchInput = tk.common.component.header.searchInput;
 
 export const SearchBarFormContent: FC<SearchBarFormContent> = ({
   className

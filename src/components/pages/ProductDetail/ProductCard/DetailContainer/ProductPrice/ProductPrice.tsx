@@ -8,19 +8,19 @@ export interface ProductPriceProps {
   product: Product;
 }
 
-const tkDetailContainer = tk.page.productDetail.component.detailContainer;
+const tkProductPrice = tk.common.productPrice;
 
 export const ProductPrice: FC<ProductPriceProps> = ({ product }) => {
   const { t } = useTranslation();
   return (
     <div className={classes.productPriceContainer}>
       <span className={classes.productPriceAmount}>
-        {t(tkDetailContainer.productPrice.priceString, {
+        {t(tkProductPrice.priceString, {
           localValue: product.price.amount,
           formatParams: {
             localValue: {
               currency: product.price.currency,
-              locale: t(tkDetailContainer.productPrice.locale),
+              locale: t(tkProductPrice.locale),
               maximumFractionDigits: 0
             }
           }
@@ -28,12 +28,9 @@ export const ProductPrice: FC<ProductPriceProps> = ({ product }) => {
       </span>
       {product.price.decimals !== 0 && (
         <span className={classes.productPriceDecimals}>
-          {product.price.decimals.toLocaleString(
-            t(tkDetailContainer.productPrice.locale),
-            {
-              minimumIntegerDigits: 2
-            }
-          )}
+          {product.price.decimals.toLocaleString(t(tkProductPrice.locale), {
+            minimumIntegerDigits: 2
+          })}
         </span>
       )}
     </div>

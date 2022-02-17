@@ -11,7 +11,7 @@ export interface HeaderProps {
   className?: string;
 }
 
-const tkheader = tk.page.home.component.header;
+const tkheader = tk.common.component.header;
 
 export const Header: FC<HeaderProps> = ({ className }) => {
   const { t } = useTranslation();

@@ -8,19 +8,19 @@ export interface ProductPriceProps {
   product: Product;
 }
 
-const tkProductItem = tk.page.searchResult.component.productItem;
+const tkProductPrice = tk.common.productPrice;
 
 export const ProductPrice: FC<ProductPriceProps> = ({ product }) => {
   const { t } = useTranslation();
   const { price } = product;
   return (
     <span className={classes.productPrice}>
-      {t(tkProductItem.productPrice.priceString, {
+      {t(tkProductPrice.priceString, {
         localValue: price.amount,
         formatParams: {
           localValue: {
             currency: price.currency,
-            locale: t(tkProductItem.productPrice.locale),
+            locale: t(tkProductPrice.locale),
             maximumFractionDigits: 0
           }
         }

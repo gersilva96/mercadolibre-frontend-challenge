@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { tk } from "translations/i18n";
 import { FC } from "types/react";
 
-const tkHome = tk.page.home;
 const tkCommon = tk.common;
 
 const HomeScreen: FC = () => {
@@ -15,7 +14,7 @@ const HomeScreen: FC = () => {
         title={t(tkCommon.title)}
         description={t(tkCommon.description)}
       />
-      <p>{t(tkHome.component.searchInput.placeholder)}</p>
+      <p>{t(tkCommon.component.header.searchInput.placeholder)}</p>
     </Fragment>
   );
 };
