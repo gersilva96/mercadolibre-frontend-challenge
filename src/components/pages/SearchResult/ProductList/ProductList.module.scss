@@ -1,3 +1,6 @@
-.hola {
-  color: black;
+@import "styles/utils/layout/flex";
+
+.productList {
+  @include flexColumnMixin($gap: 1px);
+  list-style: none;
 }

@@ -15,6 +15,8 @@
 
     .navLogo {
       background-image: url("/logos/mercado-libre.svg");
+      background-repeat: no-repeat;
+      background-size: auto;
       height: 40px;
       overflow: hidden;
       text-indent: -999px;
@@ -24,11 +26,6 @@
         background-image: url("/logos/mercado-libre-text.svg");
         width: 135px;
       }
-    }
-
-    .mercadoLibreLogo {
-      background-image: url("/logos/mercadoLibre.svg");
-      height: 40px;
     }
 
     .searchBar {

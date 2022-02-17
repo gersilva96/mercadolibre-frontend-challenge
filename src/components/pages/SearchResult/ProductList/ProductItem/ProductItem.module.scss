@@ -1,3 +1,13 @@
-.hola {
-  color: black;
+@import "styles/utils/layout/flex";
+@import "styles/variables/mediaQuerySizes";
+
+.productItem {
+  @include flexRowMixin($gap: 12px);
+  background: white;
+  padding: 12px;
+
+  @media #{$medium} {
+    @include flexRowMixin($gap: 20px);
+    padding: 20px;
+  }
 }

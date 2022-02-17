@@ -22,8 +22,20 @@ const initialState: SearchResultSlice = {
 
 const clean: Reducer = () => initialState;
 
+const cleanPagination: Reducer = (draftState) => {
+  draftState.pagination = initialState.pagination;
+};
+
 const setCategory: Reducer<Category> = (draftState, { payload }) => {
   draftState.category = payload;
+};
+
+const setCurrentPage: Reducer<number> = (draftState, { payload }) => {
+  draftState.pagination.currentPage = payload;
+};
+
+const setTotalPages: Reducer<number> = (draftState, { payload }) => {
+  draftState.pagination.totalPages = payload;
 };
 
 const setProductList: Reducer<Product[]> = (draftState, { payload }) => {
@@ -35,7 +47,10 @@ export const searchResultSlice = createSlice({
   initialState,
   reducers: {
     clean,
+    cleanPagination,
     setCategory,
+    setCurrentPage,
+    setTotalPages,
     setProductList
   }
 });

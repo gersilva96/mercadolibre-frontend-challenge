@@ -1,0 +1,20 @@
+@import "styles/utils/containers";
+@import "styles/variables/mediaQuerySizes";
+
+.titleContainer {
+  @include responsiveContainer();
+  padding: 16px 0;
+
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+
+    @media #{$medium} {
+      font-size: 24px;
+    }
+  }
+}
+
+.productListContainer {
+  @include responsiveContainer();
+}

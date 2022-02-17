@@ -1,11 +1,12 @@
-import { Fragment } from "react";
 import { FCC } from "types/react";
+import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
 import classes from "./Layout.module.scss";
 
 export const Layout: FCC = ({ children }) => (
-  <Fragment>
+  <div className={classes.body}>
     <Header />
     <main className={classes.main}>{children}</main>
-  </Fragment>
+    <Footer className={classes.footer} />
+  </div>
 );

@@ -12,6 +12,7 @@ export interface Item extends BaseItemOrItemsResult {
 
 export interface Items extends BaseItemOrItemsResult {
   items: Product[];
+  total_pages: number;
 }
 
 export interface SearchItemsQueryParams {

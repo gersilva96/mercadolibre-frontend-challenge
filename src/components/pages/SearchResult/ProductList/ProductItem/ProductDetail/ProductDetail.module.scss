@@ -1,0 +1,11 @@
+@import "styles/utils/layout/flex";
+@import "styles/variables/mediaQuerySizes";
+
+.detailContainer {
+  @include flexItemMixin($grow: 1);
+  @include flexColumnMixin($gap: 8px);
+
+  @media #{$medium} {
+    @include flexColumnMixin($gap: 12px);
+  }
+}

@@ -1,0 +1,18 @@
+@import "styles/utils/containers";
+@import "styles/utils/layout/flex";
+@import "styles/variables/colors";
+
+.container {
+  @include center();
+  @include flexColumnMixin($gap: 24px, $alignItems: center);
+
+  .title {
+    color: $meliDarkGray;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    color: $meliBlue;
+  }
+}

@@ -1,0 +1,22 @@
+@import "styles/utils/layout/flex";
+@import "styles/variables/colors";
+@import "styles/variables/mediaQuerySizes";
+
+.freeShippingContainer {
+  @include flexRowMixin($gap: 8px, $alignItems: center);
+  color: $meliGreen;
+
+  .freeShippingIcon {
+    @media #{$medium} {
+      font-size: 18px;
+    }
+  }
+
+  .freeShippingText {
+    font-size: 12px;
+
+    @media #{$medium} {
+      font-size: 14px;
+    }
+  }
+}

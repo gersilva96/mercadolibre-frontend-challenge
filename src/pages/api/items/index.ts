@@ -1,3 +1,4 @@
+import { ceil } from "lodash-es";
 import { NextApiRequest, NextApiResponse } from "next";
 import {
   Author,
@@ -25,7 +26,8 @@ const meliApiResponsePayloadToItems = async (payload: any): Promise<Items> => {
   const items: Product[] = await Promise.all(
     meliItems.map(async (item) => getProductFromMeliProduct(item))
   );
-  return { author, categories, items };
+  const total_pages = ceil(payload.paging.total / payload.paging.limit);
+  return { author, categories, items, total_pages };
 };
 
 const getProducts = async (req: NextApiRequest, res: NextApiResponse) => {

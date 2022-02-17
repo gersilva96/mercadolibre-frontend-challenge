@@ -5,12 +5,16 @@ import { tk } from "translations/i18n";
 import { FC } from "types/react";
 
 const tkHome = tk.page.home;
+const tkCommon = tk.common;
 
 const HomeScreen: FC = () => {
   const { t } = useTranslation();
   return (
     <Fragment>
-      <NextSeo title={t(tkHome.title)} description={t(tkHome.description)} />
+      <NextSeo
+        title={t(tkCommon.title)}
+        description={t(tkCommon.description)}
+      />
       <p>{t(tkHome.component.searchInput.placeholder)}</p>
     </Fragment>
   );

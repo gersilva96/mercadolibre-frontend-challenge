@@ -1,0 +1,13 @@
+@import "styles/variables/colors";
+@import "styles/variables/mediaQuerySizes";
+
+.sellerAddress {
+  display: none;
+
+  @media #{$large} {
+    color: $meliMediumGray;
+    display: block;
+    margin-top: 20px;
+    min-width: 150px;
+  }
+}

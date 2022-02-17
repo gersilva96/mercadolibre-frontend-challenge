@@ -1,0 +1,11 @@
+@import "styles/variables/colors";
+@import "styles/variables/mediaQuerySizes";
+
+.productTitle {
+  color: $meliDarkGray;
+  font-size: 14px;
+
+  @media #{$medium} {
+    font-size: 20px;
+  }
+}

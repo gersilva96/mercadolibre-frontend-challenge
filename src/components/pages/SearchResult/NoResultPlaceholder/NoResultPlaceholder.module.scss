@@ -1,0 +1,57 @@
+@import "styles/variables/colors";
+@import "styles/variables/mediaQuerySizes";
+@import "styles/utils/containers";
+@import "styles/utils/layout/flex";
+
+.wrapper {
+  @include responsiveContainer();
+
+  @media #{$large} {
+    padding: 0 96px;
+  }
+
+  @media #{$x-large} {
+    padding: 0 120px;
+  }
+}
+
+.container {
+  @include flexColumnMixin(
+    $alignItems: center,
+    $gap: 32px,
+    $justifyContent: center
+  );
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 56px;
+  padding: 40px;
+
+  @media #{$medium} {
+    @include flexRowMixin(
+      $alignItems: center,
+      $gap: 80px,
+      $justifyContent: center
+    );
+  }
+
+  .icon {
+    @media #{$medium} {
+      min-width: 100px;
+    }
+  }
+
+  .noResultTitle {
+    color: $meliGray;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    text-align: center;
+
+    @media #{$medium} {
+      color: black;
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+  }
+}

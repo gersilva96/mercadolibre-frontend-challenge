@@ -1,0 +1,10 @@
+@import "styles/variables/mediaQuerySizes";
+
+.productPrice {
+  font-size: 20px;
+  font-weight: 500;
+
+  @media #{$medium} {
+    font-size: 24px;
+  }
+}
