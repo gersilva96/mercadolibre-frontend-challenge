@@ -1,0 +1,45 @@
+@import "styles/utils/containers";
+@import "styles/utils/layout/flex";
+@import "styles/variables/colors";
+@import "styles/variables/mediaQuerySizes";
+
+.container {
+  @include responsiveContainer();
+  background-color: white;
+  border-radius: 6px;
+  margin-bottom: 128px;
+  margin-top: 128px;
+  overflow: hidden;
+
+  .title {
+    background: linear-gradient(90deg, #a90f90 55%, #0c1a51);
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 16px 24px;
+  }
+
+  .subtitle {
+    color: $meliDarkGray;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 16px 24px;
+  }
+
+  .benefitsContainer {
+    @include flexColumnMixin($gap: 24px);
+    padding: 16px 24px;
+
+    @media #{$large} {
+      @include flexRowMixin($justifyContent: space-around);
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  .subscribeButton {
+    @include flexRowMixin($justifyContent: right);
+    border-top: 1px solid $meliLightGray;
+    padding: 16px 24px;
+  }
+}

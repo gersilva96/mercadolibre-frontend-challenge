@@ -1,0 +1,37 @@
+@import "styles/utils/containers";
+@import "styles/utils/layout/flex";
+@import "styles/variables/mediaQuerySizes";
+
+.container {
+  @include responsiveContainer();
+  @include flexRowMixin($alignItems: center, $justifyContent: space-around);
+  background-color: white;
+  border-radius: 6px;
+  margin-bottom: 128px;
+  margin-top: 128px;
+  padding: 24px 0;
+
+  .debitCard {
+    display: none;
+
+    @media #{$small} {
+      display: flex;
+    }
+  }
+
+  .mercadoCredits {
+    display: none;
+
+    @media #{$large} {
+      display: flex;
+    }
+  }
+
+  .cash {
+    display: none;
+
+    @media #{$x-large} {
+      display: flex;
+    }
+  }
+}

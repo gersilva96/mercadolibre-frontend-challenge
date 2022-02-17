@@ -1,0 +1,29 @@
+@import "styles/utils/containers";
+@import "styles/utils/layout/flex";
+@import "styles/variables/colors";
+
+.container {
+  @include flexRowMixin($alignItems: center, $gap: 16px);
+  @include flexItemMixin($grow: 1, $shrink: 1, $basis: 0);
+
+  .imageContainer {
+    border: 1px solid $meliLightGray;
+    border-radius: 100%;
+    height: 72px;
+    min-height: 72px;
+    min-width: 72px;
+    overflow: hidden;
+    width: 72px;
+
+    .image {
+      height: 72px;
+      width: 72px;
+    }
+  }
+
+  .text {
+    color: $meliDarkGray;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}

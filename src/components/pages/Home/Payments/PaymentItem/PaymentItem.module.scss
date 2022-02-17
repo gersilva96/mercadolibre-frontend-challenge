@@ -1,0 +1,17 @@
+@import "styles/utils/containers";
+@import "styles/utils/layout/flex";
+@import "styles/variables/colors";
+
+.container {
+  @include flexRowMixin($alignItems: center, $gap: 16px);
+
+  .image {
+    height: 48px;
+    width: 48px;
+  }
+
+  .text {
+    color: $meliDarkGray;
+    font-size: 20px;
+  }
+}

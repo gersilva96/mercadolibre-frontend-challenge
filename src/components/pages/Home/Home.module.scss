@@ -1,0 +1,5 @@
+@import "styles/utils/layout/flex";
+
+.container {
+  @include flexColumnMixin($alignItems: center, $gap: 80px);
+}
