@@ -18,7 +18,7 @@ export const Header: FC<HeaderProps> = ({ className }) => {
   return (
     <header className={getClassName(classes.header, className)}>
       <div className={classes.headerContent}>
-        <Link href={"/"}>
+        <Link href="/">
           <a
             aria-label={t(tkheader.mainLogo.navText)}
             className={classes.navLogo}

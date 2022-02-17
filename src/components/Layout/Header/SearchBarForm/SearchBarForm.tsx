@@ -2,6 +2,7 @@ import { isString } from "lodash-es";
 import { useRouter } from "next/router";
 import { Form } from "components/generic/Form";
 import { FC } from "types/react";
+import { getItemsUrl } from "utils/pages";
 import { SearchBarFormValues } from "./searchBarFormConfig";
 import { SearchBarFormContent } from "./SearchBarFormContent/SearchBarFormContent";
 
@@ -19,7 +20,7 @@ export const SearchBarForm: FC<SearchBarFormProps> = ({ className }) => {
       cleanOnSubmit={false}
       onSubmit={async (formData) => {
         if (formData.q !== undefined && formData.q !== "") {
-          router.push(`/items?q=${formData.q}`);
+          router.push(getItemsUrl({ q: formData.q }));
         }
       }}
     >
