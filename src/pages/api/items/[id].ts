@@ -20,7 +20,7 @@ export const meliApiResponsePayloadToItem = async (
     name: "Germán",
     lastName: "Silva"
   };
-  const item: Product = await getProductFromMeliProduct(meliItem);
+  const item: Product = await getProductFromMeliProduct(meliItem, true);
   const categories: Category[] = await getCategoryListFromProduct(meliItem);
   return { author, categories, item };
 };

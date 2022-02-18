@@ -8,11 +8,15 @@ import {
   SearchItemsQueryParams
 } from "api/types";
 import { getProductFromMeliProduct } from "api/utils/items";
-import { searchUrl } from "api/utils/url";
+import { getBaseProductsUrl, searchUrl } from "api/utils/url";
 import { request } from "services/common";
 import { t, tk } from "translations/i18n";
 import { HTTPMethods } from "types/request";
-import { handleError, isResponseError } from "utils/axiosHelper";
+import {
+  handleError,
+  isResponseError,
+  isResponseSuccess
+} from "utils/axiosHelper";
 
 const tkApiCommon = tk.page.api.common;
 
@@ -23,8 +27,26 @@ const meliApiResponsePayloadToItems = async (payload: any): Promise<Items> => {
   };
   const categories: Category[] = [];
   const meliItems: any[] = payload.results;
+
+  const idsParam = meliItems.map((item) => item.id as string).join(",");
+  const itemsResponse = await request({
+    method: HTTPMethods.GET,
+    url: getBaseProductsUrl(),
+    params: { ids: idsParam }
+  });
+  let itemPictureList: { id: string; picture: string | string[] }[] = [];
+  if (isResponseSuccess(itemsResponse)) {
+    itemPictureList =
+      itemsResponse.payload.map((item: any) => ({
+        id: item.body.id,
+        picture: item.body.pictures
+      })) ?? [];
+  }
+
   const items: Product[] = await Promise.all(
-    meliItems.map(async (item) => getProductFromMeliProduct(item))
+    meliItems.map(async (item) =>
+      getProductFromMeliProduct(item, false, itemPictureList)
+    )
   );
   const total_pages = ceil(payload.paging.total / payload.paging.limit);
   return { author, categories, items, total_pages };

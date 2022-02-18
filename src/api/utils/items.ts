@@ -1,3 +1,4 @@
+import { find, isString } from "lodash-es";
 import { Category, Price, Product } from "api/types";
 import {
   getCompleteCategoryUrl,
@@ -8,15 +9,20 @@ import { HTTPMethods } from "types/request";
 import { isResponseError } from "utils/axiosHelper";
 
 export const getProductFromMeliProduct = async (
-  meliProduct: any
+  meliProduct: any,
+  withDescription: boolean,
+  itemPictureList?: any[]
 ): Promise<Product> => {
-  const descriptionResponse = await request({
-    method: HTTPMethods.GET,
-    url: getCompleteProductDescriptionUrl(meliProduct.id)
-  });
-  const description = isResponseError(descriptionResponse)
-    ? undefined
-    : (descriptionResponse.payload.plain_text as string);
+  let description = "";
+  if (withDescription) {
+    const descriptionResponse = await request({
+      method: HTTPMethods.GET,
+      url: getCompleteProductDescriptionUrl(meliProduct.id)
+    });
+    description = isResponseError(descriptionResponse)
+      ? ""
+      : (descriptionResponse.payload.plain_text as string);
+  }
   const getPrice = (): Price => {
     const price = (meliProduct.price as number).toString();
     const [amount, decimals] = price.split(".").map((number) => Number(number));
@@ -26,15 +32,20 @@ export const getProductFromMeliProduct = async (
       decimals: decimals || 0
     };
   };
+  type Picture = string | string[];
+  const getPicture = (): Picture => {
+    const { picture } = find(
+      itemPictureList,
+      (itemPicture) => itemPicture.id === meliProduct.id
+    );
+    if (isString(picture)) return picture;
+    return picture.map((pic: any) => pic.secure_url);
+  };
   return {
     id: meliProduct.id,
     title: meliProduct.title,
     price: getPrice(),
-    picture: meliProduct.pictures
-      ? meliProduct.pictures.map((picture: any) => picture.url)
-      : meliProduct.thumbnail
-      ? meliProduct.thumbnail
-      : [],
+    picture: getPicture(),
     condition: meliProduct.condition,
     seller_address: {
       city: meliProduct.seller_address.city.name,

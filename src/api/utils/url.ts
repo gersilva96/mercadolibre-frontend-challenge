@@ -5,6 +5,8 @@ export const baseUrl = CONFIG.SERVICES.MELI.URL as string;
 
 export const searchUrl = urlJoin(baseUrl, "sites", "MLA", "search");
 
+export const getBaseProductsUrl = () => urlJoin(baseUrl, "items");
+
 export const getCompleteProductUrl = (productId: string) =>
   urlJoin(baseUrl, "items", productId);
 

@@ -12,9 +12,14 @@
 
   .picture {
     @include center();
-    height: 160px;
+    height: 140px;
     object-fit: contain;
-    width: 160px;
+    width: 140px;
+
+    @media #{$medium} {
+      height: 160px;
+      width: 160px;
+    }
   }
 
   @media #{$medium} {
