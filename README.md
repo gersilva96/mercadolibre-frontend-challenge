@@ -4,7 +4,7 @@
 
 # Mercado Libre - Frontend Challenge
 
-El objetivo del challenge es realizar una pequeña aplicación funcional en la que se pueda buscar productos, listarlos en base a la búsqueda y poder acceder al detalle de cada uno de ellos. Dada la libertad para poder agregar detalles, se modificaron un poco los estilos para que queden similares a la web actual de Mercado Libre.
+El objetivo del challenge es realizar una pequeña aplicación funcional en la que se pueda buscar productos, listarlos en base a la búsqueda y poder acceder al detalle de cada uno de ellos. Dada la libertad para poder agregar detalles, se modificaron un poco los estilos para que queden similares a la web actual de Mercado Libre y se agregaron algunos detalles para que quede la aplicación luzca más completa.
 
 ## Pantallas
 
@@ -35,7 +35,7 @@ La api desarrollada cuenta con 3 endpoints:
 
 ## Tecnologías utilizadas
 
-- React.js, con Next.js como framework, utilizándolo con Server Side Rendering para vistas dinámicas y Statig Generation para vistas no dinámicas.
+- React.js, con Next.js como framework, utilizándolo con Server Side Rendering para vistas dinámicas y Static Generation para vistas no dinámicas.
 - Redux para el estado, con ayuda de Redux Toolkit.
 - Next.js (con Node.js y Express.js por detrás) para las rutas de la api.
 - TypeScript para controlar el tipado en toda la aplicación
@@ -48,13 +48,13 @@ La api desarrollada cuenta con 3 endpoints:
 
 ## Deploy
 
-Deploy realizado en Vercel, debido a la altísima compatibilidad con Next.js, disponible en el siguiente link: [MELI FRONTEND CHALLENGE](https://gersilva-mercadolibre-frontend-challenge.vercel.app/)
+Deploy realizado en Vercel, disponible en el siguiente link: [Mercado Libre - Frontend Challenge](https://gersilva-mercadolibre-frontend-challenge.vercel.app/)
 
-## Deuda técnica y posibles mejoras
+## Posibles mejoras
 
-- Sería mucho más eficiente tener la api en un servidor aparte desarrollado en Node.js con Express.js, por temas de tiempos y practicidad se aprovecharon las api routes de Next.js. El problema es que al usar Server Side Rendering, los request a la api propia que se realizan en getServerSideProps y los mismos requests que realiza la api propia a la api de Mercado Libre, se realizan en el mismo servidor, provocando que las búsquedas sea más lento. Una solución podría ser no utilizar Server Side Rendering, pero de esta forma no se podrían ocultar los endpoints de la api. La mejor solución sería tener servidor de la api propia y servidor del frontend en servicios separados.
-- Si se hubiesen desarrollado los servicios por separado, se podría usar una arquitectura monorepo para facilitar el desarrollo del proyecto, debido a que ambos estarían desarrollados en el mismo lenguaje.
-- Se deberían crear más tests para los componentes, corroborar que se rendericen correctamente, con el contenido y estilos correspondientes.
-- Sería más prolijo el estilado de los componentes armando más mixines para simplificar el código, también una posible migración a JSS dada la facilidad de intercambiar datos entre componente y estilado.
-- Ideal más optimizaciones para mejorar SEO.
+- Sería mucho más eficiente tener la api en un servidor aparte desarrollado en Node.js con Express.js, por temas de tiempos y practicidad se aprovecharon las api routes de Next.js. Acorde a la documentación de Next.js, el problema es que al usar Server Side Rendering, los request a la api propia que se realizan en getServerSideProps y los mismos requests que realiza la api propia a la api de Mercado Libre, se realizan en el mismo servidor, provocando que el tiempo de renderizado sea mayor. Una solución podría ser no utilizar Server Side Rendering, pero de esta forma no se podrían ocultar los endpoints de la api. La mejor solución sería tener servidor de la api propia y servidor del frontend en servicios separados.
+- De haberse desarrollado los servicios por separado, se podría usar una arquitectura monorepo para facilitar el desarrollo del proyecto, debido a que ambos estarían desarrollados en el mismo lenguaje, pudiendo aprovechar hearramientas como Lerna y Yarn Workspaces.
+- Se deberían crear más tests para los componentes, corroborar que se rendericen correctamente con el contenido y estilos correspondientes y para los endpoints de la api.
+- Sería más prolijo el estilado de los componentes armando más mixines para simplificar el código y lograr una mayor reutilización, también una posible migración a JSS dada la facilidad de intercambiar datos entre componente y estilado.
+- Ideal más optimizaciones para mejorar SEO, accesibilidad y performance, basándose principalmente en las Core Web Vitals y demás métricas que ofrece Lighthouse.
 - Se podría agregar, en el detalle de producto, el soporte para poder mostrar más de una sola imagen para los mismos.
