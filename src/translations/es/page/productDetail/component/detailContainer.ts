@@ -5,8 +5,7 @@ export const detailContainer = {
     [ProductCondition.New]: "Nuevo",
     [ProductCondition.NotSpecified]: "Condición no especificada",
     [ProductCondition.Used]: "Usado",
-    soldQuantity: "{{count}} vendido",
-    soldQuantity_plural: "{{count}} vendidos"
+    soldQuantity: "{{count}} vendidos"
   },
   freeShipping: "Envío gratis",
   buttons: {
