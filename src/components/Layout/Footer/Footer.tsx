@@ -15,8 +15,18 @@ export const Footer: FC<FooterProps> = ({ className }) => {
   return (
     <div className={getClassName(classes.wrapper, className)}>
       <div className={classes.container}>
-        <p className={classes.text}>{t(tkFooter.copyright)}</p>
-        <p className={classes.text}>{t(tkFooter.address)}</p>
+        <p className={classes.text}>{t(tkFooter.lineOne)}</p>
+        <p className={classes.text}>
+          {t(tkFooter.lineTwo)}
+          <a
+            className={classes.bold}
+            target="_blank"
+            href="https://linkedin.com/in/germansilva"
+            rel="noreferrer"
+          >
+            {t(tkFooter.name)}
+          </a>
+        </p>
       </div>
     </div>
   );
