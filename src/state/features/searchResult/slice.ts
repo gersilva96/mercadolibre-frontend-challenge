@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { paginationLimit } from "api/constants/general";
-import { Category, Pagination, Product } from "api/types";
+import { Category, Product } from "api/types";
 import { SliceNames } from "state/state";
+import { Pagination } from "types/pagination";
 import { GenericReducer } from "types/react";
 
 export interface SearchResultSlice {

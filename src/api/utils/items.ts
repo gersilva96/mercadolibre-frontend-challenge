@@ -34,12 +34,16 @@ export const getProductFromMeliProduct = async (
   };
   type Picture = string | string[];
   const getPicture = (): Picture => {
-    const { picture } = find(
-      itemPictureList,
-      (itemPicture) => itemPicture.id === meliProduct.id
-    );
-    if (isString(picture)) return picture;
-    return picture.map((pic: any) => pic.secure_url);
+    if (itemPictureList !== undefined) {
+      const { picture } = find(
+        itemPictureList,
+        (itemPicture) => itemPicture.id === meliProduct.id
+      );
+      if (isString(picture)) return picture;
+      return picture.map((pic: any) => pic.secure_url);
+    }
+    if (isString(meliProduct.pictures)) return meliProduct.pictures;
+    return meliProduct.pictures.map((picture: any) => picture.secure_url);
   };
   return {
     id: meliProduct.id,

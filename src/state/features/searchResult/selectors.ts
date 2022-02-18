@@ -1,6 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { Category, Pagination, Product } from "api/types";
+import { Category, Product } from "api/types";
 import { RootState, sliceSelector } from "state/store";
+import { Pagination } from "types/pagination";
 import { Optional } from "types/utils";
 import { searchResultSlice } from "./slice";
 
