@@ -7,9 +7,14 @@
   @include flexRowMixin($alignItems: center, $justifyContent: space-around);
   background-color: white;
   border-radius: 6px;
-  margin-bottom: 128px;
-  margin-top: 128px;
+  margin-bottom: 64px;
+  margin-top: 64px;
   padding: 24px 0;
+
+  @media #{$medium} {
+    margin-bottom: 128px;
+    margin-top: 128px;
+  }
 
   .debitCard {
     display: none;
