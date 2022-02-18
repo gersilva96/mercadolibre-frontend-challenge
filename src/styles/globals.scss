@@ -1,5 +1,8 @@
 @use "styles/utils/containers" as containers;
 @use "styles/variables/colors" as colors;
+@import "swiper/swiper.scss";
+@import "swiper/modules/pagination/pagination.scss";
+@import "swiper/modules/autoplay/autoplay.scss";
 
 * {
   box-sizing: border-box;

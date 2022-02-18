@@ -1,4 +1,4 @@
-@mixin flexContainerInternal(
+@mixin flexContainer(
   $direction,
   $wrap,
   $justifyContent,
@@ -18,56 +18,34 @@
   $justifyContent: flex-start,
   $alignItems: stretch,
   $alignContent: stretch,
-  $wrapContent: false,
+  $wrap: nowrap,
   $gap: 0
 ) {
-  @if $wrapContent {
-    @include flexContainerInternal(
-      row,
-      wrap,
-      $justifyContent,
-      $alignItems,
-      $alignContent,
-      $gap
-    );
-  } @else {
-    @include flexContainerInternal(
-      row,
-      nowrap,
-      $justifyContent,
-      $alignItems,
-      $alignContent,
-      $gap
-    );
-  }
+  @include flexContainer(
+    row,
+    $wrap,
+    $justifyContent,
+    $alignItems,
+    $alignContent,
+    $gap
+  );
 }
 
 @mixin flexColumnMixin(
   $justifyContent: flex-start,
   $alignItems: stretch,
   $alignContent: stretch,
-  $wrapContent: false,
+  $wrap: nowrap,
   $gap: 0
 ) {
-  @if $wrapContent {
-    @include flexContainerInternal(
-      column,
-      wrap,
-      $justifyContent,
-      $alignItems,
-      $alignContent,
-      $gap
-    );
-  } @else {
-    @include flexContainerInternal(
-      column,
-      nowrap,
-      $justifyContent,
-      $alignItems,
-      $alignContent,
-      $gap
-    );
-  }
+  @include flexContainer(
+    column,
+    $wrap,
+    $justifyContent,
+    $alignItems,
+    $alignContent,
+    $gap
+  );
 }
 
 @mixin flexItemMixin(
