@@ -7,11 +7,12 @@ import { store } from "state/store";
 import i18n from "translations/i18n";
 import { FC } from "types/react";
 import "styles/globals.scss";
+import { theme } from "utils/chakraui";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => (
   <Provider store={store}>
     <I18nextProvider i18n={i18n}>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
