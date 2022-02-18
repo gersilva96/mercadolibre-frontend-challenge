@@ -1,5 +1,5 @@
 export const footer = {
-  lineOne: "Challenge de ingreso a Mercado Libre",
+  lineOne: "Mercado Libre - Frontend Challenge",
   lineTwo: "Desarrollado con ♥ por ",
   name: "Germán Silva"
 };
