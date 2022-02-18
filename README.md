@@ -1,4 +1,6 @@
-<img src="https://raw.githubusercontent.com/gersilva96/mercadolibre-frontend-challenge/main/public/logos/mercado-libre-text.svg?token=GHSAT0AAAAAABRCZF5M4O2MFFGVHSRKKW52YQPKPDQ" alt="Mercado Libre - Frontend Challenge" width="400"/>
+<a href="https://gersilva-mercadolibre-frontend-challenge.vercel.app/" target="_blank">
+	<img src="https://raw.githubusercontent.com/gersilva96/mercadolibre-frontend-challenge/main/public/logos/mercado-libre-text.svg" alt="Mercado Libre - Frontend Challenge" width="400"/>
+</a>
 
 # Mercado Libre - Frontend Challenge
 
@@ -46,7 +48,7 @@ La api desarrollada cuenta con 3 endpoints:
 
 ## Deploy
 
-Deploy realizado en Vercel, debido a la altísima compatibilidad con Next.js, disponible en el siguiente link: [MELI FRONTEND CHALLENGE](https://mercadolibre-challenge-frontend.vercel.app/)
+Deploy realizado en Vercel, debido a la altísima compatibilidad con Next.js, disponible en el siguiente link: [MELI FRONTEND CHALLENGE](https://gersilva-mercadolibre-frontend-challenge.vercel.app/)
 
 ## Deuda técnica y posibles mejoras
 
