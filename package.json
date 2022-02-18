@@ -16,7 +16,8 @@
     "build:control": "run-s clean:build control && next build",
     "build": "run-s clean:build && next build",
     "export": "run-s build && next export",
-    "start": "next start"
+    "start": "next start",
+    "complete:start": "npm i && run-s build start"
   },
   "dependencies": {
     "@chakra-ui/react": "1.8.3",

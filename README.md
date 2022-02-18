@@ -50,6 +50,14 @@ La api desarrollada cuenta con 3 endpoints:
 
 Deploy realizado en Vercel, disponible en el siguiente link: [Mercado Libre - Frontend Challenge](https://gersilva-mercadolibre-frontend-challenge.vercel.app/)
 
+## Entorno local
+
+Para poder levantar el proyecto en un entorno local, es necesario tener instalado Node.js, solamente se debe ejecutar alguno de los siguientes comandos en la raiz del proyecto:
+
+``npm run complete:start``
+
+``yarn complete:start``
+
 ## Posibles mejoras
 
 - Sería mucho más eficiente tener la api en un servidor aparte desarrollado en Node.js con Express.js, por temas de tiempos y practicidad se aprovecharon las api routes de Next.js. Acorde a la documentación de Next.js, el problema es que al usar Server Side Rendering, los request a la api propia que se realizan en getServerSideProps y los mismos requests que realiza la api propia a la api de Mercado Libre, se realizan en el mismo servidor, provocando que el tiempo de renderizado sea mayor. Una solución podría ser no utilizar Server Side Rendering, pero de esta forma no se podrían ocultar los endpoints de la api. La mejor solución sería tener servidor de la api propia y servidor del frontend en servicios separados.
